@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
+  get 'home/index'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
-  get 'index', to: 'chambas#index'
+ #{} get 'chambas/index', to: 'chambas#index'
   # Defines the root path route ("/")
-  root to 'chambas#index'
+  root 'home#index'
  
 end
