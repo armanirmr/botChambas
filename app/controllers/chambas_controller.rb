@@ -3,6 +3,10 @@
 class ChambasController < ApplicationController
   @chamba_record_save = nil
 
+  def index
+      
+  end
+
   def create
     @chamba = Chamba.new(chamba_params)
     if @chamba.save
