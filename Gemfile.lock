@@ -208,6 +208,10 @@ GEM
       childprocess (>= 0.5, < 5.0)
       rexml (~> 3.2, >= 3.2.5)
       rubyzip (>= 1.2.2)
+    slack-ruby-bot (0.16.1)
+      activesupport
+      hashie
+      slack-ruby-client (>= 0.14.0)
     slack-ruby-client (1.0.0)
       faraday (>= 1.0)
       faraday_middleware
@@ -261,6 +265,7 @@ DEPENDENCIES
   rails (~> 7.0.2)
   redis (~> 4.0)
   selenium-webdriver
+  slack-ruby-bot
   slack-ruby-client
   sprockets-rails
   stimulus-rails
