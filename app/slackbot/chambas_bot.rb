@@ -3,8 +3,7 @@ require 'slack-ruby-client'
 class ChambasBot
   def initialize()
     Slack.configure do |config|
-      #config.token = ENV['SLACK_API_TOKEN']
-      config.token = "xoxb-3079632189077-3076460924070-qhgehr60yIx5RNsXPDE19XQi"
+      config.token = ENV['SLACK_API_TOKEN']
       raise 'Missing ENV[SLACK_API_TOKEN]!' unless config.token
     end
     @client = Slack::Web::Client.new
