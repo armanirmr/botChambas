@@ -15,12 +15,12 @@ class ChambasBot
     @client.chat_postMessage(channel: "general", text:'mensaje prueba')
   end
 
-  def mensaje_bueno(canal)
-    @client.chat_postMessage(channel: canal, text:'Chambita agregada')
+  def mensaje_bueno(user_name)
+    @client.chat_postMessage(channel: "general", text:"Chambita agregada <@#{user_name}>")
   end
 
-  def mensaje_malo(canal)
-    @client.chat_postMessage(channel: canal, text:'Hubo un fallo al agregar la chambita :(')
+  def mensaje_malo(user_id)
+    @client.chat_postMessage(channel: "general", text:'Hubo un fallo al agregar la chambita :(')
   end
 
   def bot_dialog(json, trigger)

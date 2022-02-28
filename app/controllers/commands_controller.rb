@@ -4,30 +4,29 @@ require 'httparty'
 
 class CommandsController < ApplicationController
   skip_before_action :verify_authenticity_token
+	
 
   def create
 		bot = ChambasBot.new
 		dialog = helpers.generate_dialog
-		puts dialog.to_json
 		bot.bot_dialog(dialog.to_json, params[:trigger_id])
-		message = {"text": "chambita agregada"}
-		HTTParty.post(params[:response_url], { body: message.to_json, headers: {
-			"Content-Type" => "application/json"
-		 }
-		})
+		render status: 200, json: ''
+		# HTTParty.post(params[:response_url], { body: message.to_json, headers: {
+		# 	"Content-Type" => "application/json"
+		#  }
+		# })
 			
 	end
 
 	def dialog
-  	p "bingo"
+		bot = ChambasBot.new
+		data = JSON.parse(params[:payload])
+  	bot.mensaje_bueno(data["user"]["name"])
+		render status: 200, json: ''
 	end
 
-  def valid_slack_token?
-    params[:token] == ENV["SLACK_SLASH_COMMAND_TOKEN"]
-  end
-
-  def command_params
-    params.permit(:text, :token, :user_id, :response_url)
-  end
+  # def command_params
+  #   params.permit(:text, :token, :user_id, :response_url,:user,:trigger_id)
+  # end
 
 end
